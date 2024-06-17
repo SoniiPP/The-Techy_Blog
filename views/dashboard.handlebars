@@ -1,39 +1,14 @@
-<h2>Dashboard</h2>
-<button id="new-post">New Post</button>
-{{#each blogPosts}}
-  <article>
+{{#each posts}}
+  <div class="post">
     <h2>{{this.title}}</h2>
     <p>{{this.content}}</p>
-    <p>Posted by {{this.user.username}} on {{this.createdAt}}</p>
-    <button class="edit-post" data-id="{{this.id}}">Edit</button>
+    <a href="/post/{{this.id}}">Read more</a>
     <button class="delete-post" data-id="{{this.id}}">Delete</button>
-  </article>
+  </div>
 {{/each}}
-
-<script>
-document.getElementById('new-post').addEventListener('click', () => {
-  // Handle new post creation
-});
-
-document.querySelectorAll('.edit-post').forEach(button => {
-  button.addEventListener('click', async (event) => {
-    const id = event.target.getAttribute('data-id');
-    // Handle post editing
-  });
-});
-
-document.querySelectorAll('.delete-post').forEach(button => {
-  button.addEventListener('click', async (event) => {
-    const id = event.target.getAttribute('data-id');
-    const response = await fetch(`/post/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete post');
-    }
-  });
-});
-</script>
+<form id="new-post-form">
+  <input type="text" id="title" name="title" placeholder="Post Title">
+  <textarea id="content" name="content" rows="3" placeholder="Post Content"></textarea>
+  <button type="submit">Create Post</button>
+</form>
+<script src="/js/dashboard.js"></script>
