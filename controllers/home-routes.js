@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { BlogPost, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Homepage Route
 router.get('/', async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
@@ -24,6 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Single Post Route
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await BlogPost.findByPk(req.params.id, {
@@ -55,6 +57,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+// Dashboard Route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.findAll({
@@ -80,6 +83,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Login Route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -89,6 +93,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Signup Route
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
