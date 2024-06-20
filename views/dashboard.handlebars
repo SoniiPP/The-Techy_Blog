@@ -1,14 +1,23 @@
-{{#each posts}}
-  <div class="post">
-    <h2>{{this.title}}</h2>
-    <p>{{this.content}}</p>
-    <a href="/post/{{this.id}}">Read more</a>
-    <button class="delete-post" data-id="{{this.id}}">Delete</button>
-  </div>
-{{/each}}
-<form id="new-post-form">
-  <input type="text" id="title" name="title" placeholder="Post Title">
-  <textarea id="content" name="content" rows="3" placeholder="Post Content"></textarea>
-  <button type="submit">Create Post</button>
-</form>
+<h2>Create New Post</h2>
+      <form id="new-post-form">
+        <div>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Post Title">
+        </div>
+        <div>
+          <label for="content">Content</label>
+          <textarea id="content" name="content" rows="3" placeholder="Post Content"></textarea>
+        </div>
+        <button type="submit">Create</button>
+      </form>
+    </section>
+    <section class="post-list">
+      {{#each posts}}
+        <div class="post">
+          <h2>{{this.title}}</h2>
+          <p>{{this.content}}</p>
+          <button class="delete-post" data-id="{{this.id}}">Delete</button>
+        </div>
+      {{/each}}
+    </section>
 <script src="/js/dashboard.js"></script>
