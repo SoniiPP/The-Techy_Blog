@@ -1,24 +1,37 @@
-const signupFormHandler = async (event) => {
-    event.preventDefault();
+const signUpHandler = async (e) => {
+    e.preventDefault();
+    const user_name = $('#signup-username').val().trim();
+    const password = $('#signup-password').val().trim();
 
-    const username = document.querySelector('#signup-username').value.trim();
-    const password = document.querySelector('#signup-password').value.trim();
+    if (user_name == "") {
+        $('#signup-username').attr("style", "border-color: red;")
+        $('#signup-username').attr("placeholder", "Please enter a username")
+    }
 
-    if (username && password) {
-        const response = await fetch('/api/users/signup', {
+    if (password.length < 8) {
+        $('#signup-password').attr("style", "border-color: red;")
+        $('#signup-password').attr("placeholder", "Please enter a valid password")
+        return;
+    }
+
+    if (user_name && password) {
+        const response = await fetch('/api/signup', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ user_name, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
+        const signData = await response.json();
+        if (response.status === 400 || response.status === 404) {
+            return alert(signData.message)
+        }
         if (response.ok) {
+            //replaces current page with home page
             document.location.replace('/');
         } else {
-            alert('Failed to sign up.');
+            return alert('This username is already taken. Please try a different Username.')
         }
     }
 };
 
-document
-    .querySelector('#signup-btn')
-    .addEventListener('click', signupFormHandler);
+$('#signup-btn').click(signUpHandler)
