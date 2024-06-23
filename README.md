@@ -39,3 +39,10 @@ Working on the Tech Blog project posed several challenges that required careful 
 1. Establishing a clear and organized project structure was crucial to ensure maintainability and scalability.
 2. Designing a database schema that accurately represents the relationships between users, blog posts, and comments.
 3. Ensuring smooth communication between the front-end and back-end, especially for operations like user login, signup, and CRUD operations on blog posts.
+
+![Screenshot 2024-06-24 034519](https://github.com/SoniiPP/The-Techy_Blog/assets/157616916/0c1e42d5-bc6d-477b-964f-b7e2a06f8e4f)
+## Technologies 
+node,sequilize , dotenv, Postgres , JavaScript 
+
+
+
