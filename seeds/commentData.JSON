@@ -1,13 +1,17 @@
 [
-    {
-      "comment_text": "Great article!",
-      "user_id": 2,
-      "post_id": 1
-    },
-    {
-      "comment_text": "Very informative, thanks!",
-      "user_id": 1,
-      "post_id": 2
-    }
-  ]
-  
+  {
+      "contents": "Stop blogging and start making more Krabby Patties!!!!",
+      "user_id": "3",
+      "post_id": "1"
+  },
+  {
+      "contents": "I totally agree with me.",
+      "user_id": "2",
+      "post_id": "2"
+  },
+  {
+      "contents": "Wow Squidward, you're so analytical and consise with your words and stuff!",
+      "user_id": "1",
+      "post_id": "3"
+  }
+]

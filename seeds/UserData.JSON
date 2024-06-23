@@ -1,13 +1,14 @@
 [
     {
-      "username": "john_doe",
-      "password": "password123",
-      "email": "john_doe@example.com"
+      "user_name" : "Spongebob",
+      "password": "password01"
     },
     {
-      "username": "jane_smith",
-      "password": "password123",
-      "email": "jane_smith@example.com"
+      "user_name" : "Patrick",
+      "password": "password02"
+    },
+    {
+      "user_name" : "Squidward",
+      "password": "password03"
     }
-  ]
-  
+]
